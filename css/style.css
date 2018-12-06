@@ -508,6 +508,10 @@ input[type=radio] {
   display: inline-block;
 }
 
+.disabled {
+  color: grey;
+}
+
 button {
   color: #fff;
   padding: 0.55em 1.25em;
