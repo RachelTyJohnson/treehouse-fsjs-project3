@@ -6,6 +6,8 @@ $(document).ready(function() {
   $('#other-title').hide();
   $('.payment-pp').hide();
   $('.payment-btc').hide();
+  $('.totalCost').hide();
+  $('#colors-js-puns').hide();
 
   //****************************************************
   //show or unshow the other-title text field
@@ -20,6 +22,9 @@ $(document).ready(function() {
   //****************************************************
   //show or unshow certain colors depending on chosen shirt design
   $("#design").change(function(){
+    if( $('#design').val() !== "selectthem" ){
+      $('#colors-js-puns').show();
+    }
     if( $('#design').val() == "js puns" ){
       $('#color option').hide();
       $('#color option').attr('selected',null);
@@ -40,7 +45,6 @@ $(document).ready(function() {
 
 
   let totalCost = 0;
-  $('.totalCost').hide();
   $('.activities input').change(function(){
 
     //cost logic
@@ -88,20 +92,124 @@ $(document).ready(function() {
     }
   })
 
+  //*****************************
+  // Form Validation
+  $('button[type="submit"]').click(function(e){
+    let allGood = true;
+    allGood *= validateName();
+    allGood *= validateEmail();
+    allGood *= validateActivities();
+    allGood *= validateCC();
+    allGood *= validateZIP();
+    allGood *= validateCVV();
+    if (!allGood) {
+      e.preventDefault();
+    }
+  });
 
-
-  //****************************************************
-  //Form Validation
-
-  //check name function
-  function validateName(){
-    return /^[a-z]+?/i.test($('#name'));
-  }
-
-  //check email function
-  function validateEmail(){
-    return /^[^@]+@[^@.]+\.[a-z]+$/i.test($('#mail'));
-    $('#mail').val($('#mail').toLowerCase);
-  }
+  $('#name').blur(validateName);
+  $('#mail').blur(validateEmail);
+  $('#cc-num').blur(validateCC);
+  $('#zip').blur(validateZIP);
+  $('#cvv').blur(validateCVV);
 
 })
+
+
+//****************************************************
+//Form Validation Functions
+
+//check name functions
+function validateName(){
+  let result = /[a-z]+/i.test( $('#name').val() )
+  if (!result){
+    $('#name').addClass('error');
+    $('#name').prev().text("Please enter a name").show();
+  } else {
+    $('#name').removeClass('error');
+    $('#name').prev().hide();
+  }
+  return result;
+}
+
+//check email function
+function validateEmail(){
+  $('#mail').val($('#mail').val().toLowerCase());
+  let result = /^[^@]+@[^@.]+\.[a-z]+$/i.test( $('#mail').val() );
+  if (!result){
+    $('#mail').addClass('error');
+    $('#mail').prev().text("Please enter a valid email").show();
+  } else {
+    $('#mail').removeClass('error');
+    $('#mail').prev().hide();
+  }
+  return result;
+}
+
+//check activities functions
+function validateActivities(){
+  if ($("form input:checkbox:checked").length > 0){
+    $('.activities legend').removeClass('error-text');
+    $('.activities .tooltip').hide();
+    return true;
+  } else {
+    $('.activities legend').addClass('error-text');
+    $('.activities .tooltip').text("Please choose at least one Activity").show();
+    return false;
+  }
+}
+
+//check CC number
+function validateCC(){
+  if ($('#payment').val() == "credit card"){
+    let result = /^\d{13,16}$/.test($('#cc-num').val());
+    if (!result){
+      $('#cc-num').addClass('error');
+      if ($('#cc-num').val() == ""){
+        $('#cc-num').next().text("Please enter a CC Number").show();
+      } else {
+        $('#cc-num').next().text("Please enter a number that is 13-16 digits long").show();
+      }
+      return false;
+    } else {
+      $('#cc-num').removeClass('error');
+      $('#cc-num').next().hide();
+      return true;
+    }
+  }
+  return true;
+}
+
+//check ZIP
+function validateZIP(){
+  if ($('#payment').val() == "credit card"){
+    let result = /^\d{5}$/.test($('#zip').val());
+    if (!result){
+      $('#zip').addClass('error');
+      $('#zip').next().text("Please enter a valid ZIP").show();
+      return false;
+    } else {
+      $('#zip').removeClass('error');
+      $('#zip').next().hide();
+      return true;
+    }
+  }
+  return true;
+}
+
+//check CVV
+function validateCVV(){
+  if ($('#payment').val() == "credit card"){
+    let result = /^\d{3}$/.test($('#cvv').val());
+    if (!result){
+      $('#cvv').addClass('error');
+      $('#cvv').next().text("Please enter a valid CVV").show();
+      return false;
+    } else {
+      $('#cvv').removeClass('error');
+      $('#cvv').next().hide();
+      return true;
+    }
+  }
+  return true;
+}

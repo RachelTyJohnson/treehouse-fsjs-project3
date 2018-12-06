@@ -24,9 +24,11 @@
         <legend>Basic Info</legend>
 
         <label for="name">Name:</label>
+        <span class="tooltip"></span>
         <input type="text" id="name" name="user_name" autofocus>
 
         <label for="mail">Email:</label>
+        <span class="tooltip"></span>
         <input type="email" id="mail" name="user_email">
 
         <label for="title">Job Role</label>
@@ -38,7 +40,7 @@
           <option value="student">Student</option>
           <option value="other">Other</option>
         </select>
-        <input type="text" id="other-title" name="othertitle" placeholder="Your Job Role">
+        <input type="text" id="other-title" name="othertitle" placeholder="Your Job Role, if other">
 
       </fieldset>
 
@@ -58,7 +60,7 @@
         <div>
           <label for="design">Design:</label>
           <select id="design" name="user_design">
-            <option hidden>Select Theme</option>
+            <option value="selecttheme" hidden>Select Theme</option>
             <option value="js puns">Theme - JS Puns</option>
             <option value="heart js">Theme - I &#9829; JS</option>
           </select>
@@ -67,6 +69,7 @@
         <div id="colors-js-puns" class="">
           <label for="color">Color:</label>
           <select id="color">
+            <option hidden>Please select a T-Shirt theme</option>
             <option value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
             <option value="darkslategrey">Dark Slate Grey (JS Puns shirt only)</option>
             <option value="gold">Gold (JS Puns shirt only)</option>
@@ -79,6 +82,7 @@
 
       <fieldset class="activities">
         <legend>Register for Activities</legend>
+
         <label class="labelcontainer">Main Conference — $200
           <input type="checkbox" name="all" value="200">
           <span class="checkmark"></span>
@@ -108,7 +112,7 @@
           <span class="checkmark"></span>
         </label>
         <h4 class="totalCost">Total Cost: -</h4>
-
+        <span class="tooltip"></span>
       </fieldset>
       <fieldset>
         <legend>Payment Info</legend>
@@ -124,17 +128,22 @@
           <div class="col-6 col">
             <label for="cc-num">Card Number:</label>
             <input id="cc-num" name="user_cc-num" type="text">
+            <span class="tooltip"></span>
           </div>
 
           <div class="col-3 col">
             <label for="zip">Zip Code:</label>
             <input id="zip" name="user_zip" type="text">
+            <span class="tooltip"></span>
           </div>
 
           <div class="col-3 col">
             <label for="cvv">CVV:</label>
             <input id="cvv" name="user_cvv" type="text">
+            <span class="tooltip"></span>
           </div>
+
+          <div class="clearfix"></div>
 
           <label for="exp-month">Expiration Date:</label>
           <select id="exp-month" name="user_exp-month">

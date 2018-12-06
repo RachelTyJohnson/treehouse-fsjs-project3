@@ -444,6 +444,17 @@ form * {
   outline: none;
 }
 
+form .tooltip {
+  color: red;
+  display: block;
+  display: none;
+  text-align: right;
+}
+
+form .activities .tooltip {
+  margin-bottom: 20px;
+}
+
 button,
 fieldset,
 legend {
@@ -513,6 +524,18 @@ input[type=radio] {
   color: grey;
 }
 
+.error {
+  border-color: red;
+  border-width: 2px;
+}
+.error:hover {
+  border-color: #990000;
+}
+
+.error-text {
+  color: red;
+}
+
 button {
   color: #fff;
   padding: 0.55em 1.25em;
@@ -555,6 +578,7 @@ button:hover {
 
 .clearfix::after {
   content: " ";
+  height: 20px;
   display: table;
   clear: both;
 }
