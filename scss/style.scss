@@ -1,0 +1,192 @@
+/* =================================
+  Base Element Styles
+==================================== */
+@import 'variables', 'checkradio';
+
+* {
+  box-sizing: border-box;
+  &::selection {
+    background: $brandColorBackground;
+  }
+}
+
+body,
+button,
+input {
+  font-family: $brandFont;
+}
+
+body {
+  font: 1em/1.5;
+  color: $brandColorHeaders;
+  background-image:url('../img/background.png');
+  background-attachment: fixed;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+/* =================================
+  Form Element Styles
+==================================== */
+form {
+  padding: 0.875em 1.875em 1.875em;
+  background: $brandColorBackground;
+}
+
+form * {
+  outline: none;
+}
+
+button,
+fieldset,
+legend {
+  padding: 0;
+  border: none;
+}
+
+fieldset {
+  margin-top: 1.5em;
+}
+
+button,
+legend {
+  font-size: 1.25em;
+}
+
+legend {
+  font-weight: 500;
+  padding-top: 0.5em;
+  border-top: 2px solid darken($brandColorBackground,20%);
+  margin-bottom: 1.125em;
+}
+
+input[type="text"],
+input[type="email"],
+legend {
+  width: 100%;
+}
+
+label {
+  color: #000;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input,
+select {
+  margin-bottom: 1.125em;
+  border-radius:$borderRadius;
+}
+
+select{
+  padding:10px;
+}
+
+
+input {
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0.8em;
+  background: lighten($brandColorBackground, 18%);
+  border: 2px solid lighten($brandColorBackground, 18%);
+  outline: none;
+  transition: border-color 0.4s, background-color 0.4s;
+}
+
+input:focus {
+  background: #fff;
+  border-color: $brandColorHeaders;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-block;
+}
+
+button {
+  color: #fff;
+  padding: 0.55em 1.25em;
+  background: $brandColorButton;
+  margin: 1.25em 0 0.5em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darken($brandColorButton,5%);
+}
+/* =================================
+  Page Styles
+==================================== */
+.container {
+  margin: auto;
+  max-width: 680px;
+}
+
+.shirt div {
+  float: left;
+  margin-right: 0.85em;
+}
+
+.interests input {
+  margin-bottom: 0;
+}
+
+.credit-card {
+  margin-top: 1.25em;
+}
+/* =================================
+  Helper Classes
+==================================== */
+.is-hidden {
+  display: none;
+}
+
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+/* =================================
+  Media Queries
+==================================== */
+@media (min-width: 0) and (max-width: 679px) {
+  header {
+    padding: 2em 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+@media (min-width: 680px) {
+  header {
+    padding: 4.65em 0 2.5em;
+  }
+
+  .col {
+    float: left;
+  }
+
+  .col + .col {
+    margin-left: 2.5%;
+  }
+
+  .col-3 {
+    width: 23%;
+  }
+
+  .col-6 {
+    width: 49%;
+  }
+}

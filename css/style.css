@@ -1,0 +1,251 @@
+/* =================================
+  Base Element Styles
+==================================== */
+@import url("https://fonts.googleapis.com/css?family=Chakra+Petch");
+.labelcontainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.labelcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.labelcontainer input:checked ~ .checkmark {
+  background-color: #22624e;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.labelcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.labelcontainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+* {
+  box-sizing: border-box;
+}
+*::selection {
+  background: #c0e2c7;
+}
+
+body,
+button,
+input {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+body {
+  font: 1em/1.5;
+  color: #184f3b;
+  background-image: url("../img/background.png");
+  background-attachment: fixed;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =================================
+  Form Element Styles
+==================================== */
+form {
+  padding: 0.875em 1.875em 1.875em;
+  background: #c0e2c7;
+}
+
+form * {
+  outline: none;
+}
+
+button,
+fieldset,
+legend {
+  padding: 0;
+  border: none;
+}
+
+fieldset {
+  margin-top: 1.5em;
+}
+
+button,
+legend {
+  font-size: 1.25em;
+}
+
+legend {
+  font-weight: 500;
+  padding-top: 0.5em;
+  border-top: 2px solid #7ac289;
+  margin-bottom: 1.125em;
+}
+
+input[type=text],
+input[type=email],
+legend {
+  width: 100%;
+}
+
+label {
+  color: #000;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input,
+select {
+  margin-bottom: 1.125em;
+  border-radius: 5px;
+}
+
+select {
+  padding: 10px;
+}
+
+input {
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0.8em;
+  background: white;
+  border: 2px solid white;
+  outline: none;
+  transition: border-color 0.4s, background-color 0.4s;
+}
+
+input:focus {
+  background: #fff;
+  border-color: #184f3b;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline-block;
+}
+
+button {
+  color: #fff;
+  padding: 0.55em 1.25em;
+  background: #22624e;
+  margin: 1.25em 0 0.5em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1b4f3f;
+}
+
+/* =================================
+  Page Styles
+==================================== */
+.container {
+  margin: auto;
+  max-width: 680px;
+}
+
+.shirt div {
+  float: left;
+  margin-right: 0.85em;
+}
+
+.interests input {
+  margin-bottom: 0;
+}
+
+.credit-card {
+  margin-top: 1.25em;
+}
+
+/* =================================
+  Helper Classes
+==================================== */
+.is-hidden {
+  display: none;
+}
+
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+@media (min-width: 0) and (max-width: 679px) {
+  header {
+    padding: 2em 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+@media (min-width: 680px) {
+  header {
+    padding: 4.65em 0 2.5em;
+  }
+
+  .col {
+    float: left;
+  }
+
+  .col + .col {
+    margin-left: 2.5%;
+  }
+
+  .col-3 {
+    width: 23%;
+  }
+
+  .col-6 {
+    width: 49%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
