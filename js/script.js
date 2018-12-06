@@ -1,4 +1,6 @@
 /*JS file*/
+
+//show or unshow the other-title text field
 $(document).ready(function() {
   $("#title").change(function(){
     if( $('#title').val() == "other"){
@@ -8,11 +10,12 @@ $(document).ready(function() {
     }
   })
 
+  //show or unshow certain colors depending on chosen shirt design
   $("#design").change(function(){
     if( $('#design').val() == "js puns" ){
       $('#color option').hide();
       $('#color option').attr('selected',null);
-      
+
       $('#color option:contains("JS Puns shirt only")').show();
       $("#color option[value*='cornflowerblue']").attr('selected','true');
 
@@ -30,4 +33,7 @@ $(document).ready(function() {
 
     }
   })
+
+
+
 })
