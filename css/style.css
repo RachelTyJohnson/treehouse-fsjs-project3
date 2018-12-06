@@ -436,6 +436,7 @@ a {
 form {
   padding: 0.875em 1.875em 1.875em;
   background: #c0e2c7;
+  border-radius: 5px;
 }
 
 form * {
