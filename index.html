@@ -38,7 +38,7 @@
           <option value="student">Student</option>
           <option value="other">Other</option>
         </select>
-        <input type="text" id="other-title" name="othertitle" placeholder="Your Job Role" style="display:none">
+        <input type="text" id="other-title" name="othertitle" placeholder="Your Job Role">
 
       </fieldset>
 
@@ -115,14 +115,12 @@
 
         <label for="payment">I'm going to pay with:</label>
         <select id="payment" name="user_payment">
-          <option value="select_method">Select Payment Method</option>
           <option value="credit card">Credit Card</option>
           <option value="paypal">PayPal</option>
           <option value="bitcoin">Bitcoin</option>
         </select>
 
-        <div id="credit-card" class="credit-card">
-
+        <div id="credit-card" class="payment-cc payment">
           <div class="col-6 col">
             <label for="cc-num">Card Number:</label>
             <input id="cc-num" name="user_cc-num" type="text">
@@ -163,11 +161,11 @@
           </select>
         </div>
 
-        <div>
+        <div class="payment-pp payment">
           <p>If you selected the PayPal option we'll take you to Paypal's site to set up your billing information, when you click “Register” below.</p>
         </div>
 
-        <div>
+        <div class="payment-btc payment">
           <p>If you selected the Bitcoin option we'll take you to the Coinbase site to set up your billing information. Due to the nature of exchanging Bitcoin, all Bitcoin transactions will be final.</p>
         </div>
 

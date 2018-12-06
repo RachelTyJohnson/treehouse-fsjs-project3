@@ -1,7 +1,14 @@
 /*JS file*/
-
-//show or unshow the other-title text field
 $(document).ready(function() {
+
+  //****************************************************
+  //page load stuff (hide stuff with JS)
+  $('#other-title').hide();
+  $('.payment-pp').hide();
+  $('.payment-btc').hide();
+
+  //****************************************************
+  //show or unshow the other-title text field
   $("#title").change(function(){
     if( $('#title').val() == "other"){
       $('#other-title').slideDown();
@@ -10,6 +17,7 @@ $(document).ready(function() {
     }
   })
 
+  //****************************************************
   //show or unshow certain colors depending on chosen shirt design
   $("#design").change(function(){
     if( $('#design').val() == "js puns" ){
@@ -27,7 +35,10 @@ $(document).ready(function() {
     }
   })
 
+  //****************************************************
   //Register for Activities section
+
+
   let totalCost = 0;
   $('.totalCost').hide();
   $('.activities input').change(function(){
@@ -60,6 +71,37 @@ $(document).ready(function() {
       $(`input[name="${disable}"]`).parent().removeClass('disabled');
       $(`input[name="${disable}"]`).attr('disabled',null);
     }
+  }
+
+  //****************************************************
+  //Payment Info section
+  $("#payment").change(function(){
+    if ($(this).val()=="credit card"){
+      $('.payment').slideUp();
+      $('.payment-cc').slideDown();
+    } else if ($(this).val()=="paypal"){
+      $('.payment').slideUp();
+      $('.payment-pp').slideDown();
+    } else {
+      $('.payment').slideUp();
+      $('.payment-btc').slideDown();
+    }
+  })
+
+
+
+  //****************************************************
+  //Form Validation
+
+  //check name function
+  function validateName(){
+    return /^[a-z]+?/i.test($('#name'));
+  }
+
+  //check email function
+  function validateEmail(){
+    return /^[^@]+@[^@.]+\.[a-z]+$/i.test($('#mail'));
+    $('#mail').val($('#mail').toLowerCase);
   }
 
 })
