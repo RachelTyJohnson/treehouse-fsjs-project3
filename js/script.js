@@ -27,14 +27,14 @@ $(document).ready(function() {
     }
     if( $('#design').val() == "js puns" ){
       $('#color option').hide();
-      $('#color option').attr('selected',null);
+      $('#color option').prop('selected',null);
       $('#color option:contains("JS Puns shirt only")').show();
-      $("#color option[value*='cornflowerblue']").attr('selected','true');
+      $("#color option[value*='cornflowerblue']").prop('selected','true');
     } else if( $('#design').val() == "heart js" ) {
       $('#color option').hide();
-      $('#color option').attr('selected',null);
+      $('#color option').prop('selected',null);
       $('#color option:contains("JS shirt only")').show();
-      $("#color option[value*='tomato']").attr('selected','true');
+      $("#color option[value*='tomato']").prop('selected','true');
     } else {
       $('#color option').show();
     }
@@ -48,16 +48,8 @@ $(document).ready(function() {
   $('.activities input').change(function(){
 
     //cost logic
-    if ( $(this).prop('checked') ){
-      totalCost += parseInt( $(this).val() );
-    } else {
-      totalCost -= parseInt( $(this).val() );
-    }
-    if (totalCost != 0){
-      $('.totalCost').text(`Total Cost: $ ${totalCost}`).slideDown();
-    } else {
-      $('.totalCost').slideUp();
-    }
+    $(this).prop('checked') ? totalCost += parseInt( $(this).val() ) : totalCost -= parseInt( $(this).val() );
+    totalCost != 0 ? $('.totalCost').text(`Total Cost: $ ${totalCost}`).slideDown() : $('.totalCost').slideUp();
 
     //competing logic
     checkActivity('js-frameworks','express');
@@ -70,10 +62,10 @@ $(document).ready(function() {
   function checkActivity(checked,disable){
     if ( $(`input[name="${checked}"]`).prop('checked') ){
       $(`input[name="${disable}"]`).parent().addClass('disabled');
-      $(`input[name="${disable}"]`).attr('disabled',true);
+      $(`input[name="${disable}"]`).prop('disabled',true);
     } else {
       $(`input[name="${disable}"]`).parent().removeClass('disabled');
-      $(`input[name="${disable}"]`).attr('disabled',null);
+      $(`input[name="${disable}"]`).prop('disabled',null);
     }
   }
 
