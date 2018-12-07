@@ -107,11 +107,11 @@ $(document).ready(function() {
     }
   });
 
-  $('#name').blur(validateName);
-  $('#mail').blur(validateEmail);
-  $('#cc-num').blur(validateCC);
-  $('#zip').blur(validateZIP);
-  $('#cvv').blur(validateCVV);
+  $('#name').keyup(validateName);
+  $('#mail').keyup(validateEmail);
+  $('#cc-num').keyup(validateCC);
+  $('#zip').keyup(validateZIP);
+  $('#cvv').keyup(validateCVV);
 
 })
 
